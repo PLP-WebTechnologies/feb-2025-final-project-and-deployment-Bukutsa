@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Careers | TechNova</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">TechNova</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="careers.html" class="active">Careers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Careers Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Join Our Team</h1>
+      <p>Be a part of the innovation at TechNova</p>
+    </div>
+  </section>
+
+  <!-- Careers Section -->
+  <section class="careers-section">
+    <div class="container">
+      <div class="job-listing">
+        <h2>Frontend Developer</h2>
+        <p>We're looking for a creative developer who thrives in building beautiful and responsive user interfaces.</p>
+        <ul>
+          <li>Must have years of experience in HTML, CSS, JavaScript</li>
+          <li>Familiarity with React or Vue.js</li>
+          <li>Knowledge of UI/UX principles</li>
+        </ul>
+        <button class="apply-btn" onclick="openModal('Frontend Developer')">
+          <i class="fas fa-paper-plane"></i> Apply Now
+        </button>
+      </div>
+
+      <div class="job-listing">
+        <h2>Cloud Infrastructure Engineer</h2>
+        <p>Design and maintain scalable cloud environments across AWS and Azure platforms.</p>
+        <ul>
+          <li>Experience with AWS, Azure or GCP</li>
+          <li>Terraform, Kubernetes, CI/CD</li>
+          <li>Strong security awareness</li>
+        </ul>
+        <button class="apply-btn" onclick="openModal('Cloud Infrastructure Engineer')">
+          <i class="fas fa-paper-plane"></i> Apply Now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Modal -->
+  <div id="applicationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Apply for this Position</h2>
+      <form id="applicationForm">
+      <form action="https://formspree.io/f/yourFormID" method="POST" enctype="multipart/form-data">
+        <input type="text" placeholder="Full Name" name="name" required />
+        <input type="email" placeholder="Email Address" name="email" required />
+        <label for="resume">Upload Resume</label>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx" required aria-label="Upload you resume" />
+        <textarea placeholder="Why should we hire you?" rows="5" name="message" required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>TechNova</h3>
+                    <p>Innovative IT solutions since 2024.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="Careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> (+254) 11575-7857/785360148</p>
+                    <p><i class="fas fa-envelope"></i> info@technova.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Paramount Plaza, Nairobi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechNova. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Modal JavaScript -->
+  <script>
+    const modal = document.getElementById("applicationModal");
+    const closeBtn = document.querySelector(".close");
+
+    function openModal(positionTitle) {
+      document.getElementById("applicationForm").dataset.role = positionTitle;
+      document.querySelector("#applicationModal h2").textContent = 'Apply for Frontend Developer';
+      document.querySelector("#applicationModal h2").textContent = 'Apply for Cloud Infrastructure Engineer';
+      modal.style.display = "block";
+    }
+
+    closeBtn.onclick = () => (modal.style.display = "none");
+
+    window.onclick = (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    };
+
+  {
+      const name = this.name.value;
+      const email = this.email.value;
+      const role = this.dataset.role;
+
+      alert(`Thanks, ${name}! Your application for ${role} has been submitted.`);
+      this.reset();
+      modal.style.display = "none";
+    };
+  </script>
+
+</body>
+</html>
